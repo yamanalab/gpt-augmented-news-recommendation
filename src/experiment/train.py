@@ -18,10 +18,8 @@ from transformers import (
 from transformers.modeling_outputs import ModelOutput
 from datetime import datetime
 
-import wandb
 from config.config import TrainConfig
 from const.path import LOG_OUTPUT_DIR, MIND_SMALL_TRAIN_DATASET_DIR, MIND_SMALL_VAL_DATASET_DIR, MODEL_OUTPUT_DIR
-from const.wandb import GPT_AUGMENTED_NEWS_RECOMMENDATION_PROJECT
 from evaluation.RecEvaluator import RecEvaluator, RecMetrics
 from mind.CategoryAugmentedMINDDataset import (
     AugmentationMethodType,
@@ -127,7 +125,6 @@ def train(
     }
 
     logging.info(setting_info)
-    wandb.log(setting_info)
 
     """
     0. Definite Parameters & Functions
@@ -258,7 +255,6 @@ def train(
         remove_unused_columns=False,
         logging_dir=LOG_OUTPUT_DIR,
         logging_steps=1,
-        report_to="wandb",  # https://docs.wandb.ai/guides/integrations/huggingface#3-log-your-training-runs-to-wb
     )
 
     trainer = Trainer(
@@ -276,7 +272,6 @@ def train(
     logging.info("Evaluation")
     metrics = evaluate(trainer.model, eval_dataset, device)
     logging.info(metrics.dict())
-    wandb.log(metrics.dict())
 
     """
     5. Save Model
@@ -294,24 +289,23 @@ def train(
 def main(cfg: TrainConfig) -> None:
     try:
         set_random_seed(cfg.random_seed)
-        with wandb.init(project=GPT_AUGMENTED_NEWS_RECOMMENDATION_PROJECT):
-            train(
-                pretrained=cfg.pretrained,
-                news_recommendation_model=cfg.news_recommendation_model,
-                npratio=cfg.npratio,
-                history_size=cfg.history_size,
-                batch_size=cfg.batch_size,
-                gradient_accumulation_steps=cfg.gradient_accumulation_steps,
-                epochs=cfg.epochs,
-                learning_rate=cfg.learning_rate,
-                weight_decay=cfg.weight_decay,
-                conv_kernel_num=cfg.conv_kernel_num,
-                kernel_size=cfg.kernel_size,
-                user_emb_dim=cfg.user_emb_dim,
-                query_dim=cfg.query_dim,
-                max_len=cfg.max_len,
-                augmentation_method=cfg.augmentation_method,
-            )
+        train(
+            pretrained=cfg.pretrained,
+            news_recommendation_model=cfg.news_recommendation_model,
+            npratio=cfg.npratio,
+            history_size=cfg.history_size,
+            batch_size=cfg.batch_size,
+            gradient_accumulation_steps=cfg.gradient_accumulation_steps,
+            epochs=cfg.epochs,
+            learning_rate=cfg.learning_rate,
+            weight_decay=cfg.weight_decay,
+            conv_kernel_num=cfg.conv_kernel_num,
+            kernel_size=cfg.kernel_size,
+            user_emb_dim=cfg.user_emb_dim,
+            query_dim=cfg.query_dim,
+            max_len=cfg.max_len,
+            augmentation_method=cfg.augmentation_method,
+        )
     except Exception as e:
         logging.error(e)
 
