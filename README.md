@@ -7,9 +7,11 @@
     <img src="./.github/images/method-overview.png" alt="Overview of our proposed method.">
 </div>
 
-This repository is the official implementation for the paper: **News Recommendation with Category Description via Large Language Model**. 
+This repository is the official implementation for the paper: **News Recommendation with Category Description via Large Language Model**. (to appear)
 
 In this study, we proposed a novel approach that utilizes Large Language Models (LLMs) to automatically generate descriptive texts for news categories, which are then applied to enhance news recommendation performance. Comprehensive experiments demonstrate that our proposed method achieves a 5.8% improvement in performance compared to baselines.
+
+**The paper is currently under review and will be published soon. We will update the README with more details and a link to the paper once it becomes available.**
 
 ## Directories
 ```bash
@@ -154,41 +156,8 @@ $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased"
 
 ### Evaluation Result
 
-**Comparison of different methods on the MIND dataset**
-| Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
-|----------------------|------------------|--------------------------------|-------|-------|--------|---------|
-| NAML | DistilBERT | *title only* | 0.675 | 0.292 | 0.317 | 0.384 |
-|  |  | *title + template-based* | 0.690 | 0.295 | 0.327 | 0.393 |
-|  |  | *title + generate-description* (ours) | **0.713** | **0.326** | **0.363** | **0.425** |
-|  | BERT | *title only* | 0.700 | 0.318 | 0.350 | 0.414 |
-|  |  | *title + template-based* | 0.696 | 0.308 | 0.340 | 0.405 |
-|  |  | *title + generate-description* (ours) | **0.707** | **0.322** | **0.357** | **0.420** |
-| NRMS | DistilBERT | *title only* | 0.674 | 0.297 | 0.322 | 0.387 |
-|  |  | *title + template-based* | 0.675 | 0.311 | 0.341 | 0.400 |
-|  |  | *title + generate-description* (ours) | **0.707** | **0.324** | **0.359** | **0.422** |
-|  | BERT | *title only* | 0.689 | 0.306 | 0.336 | 0.400 |
-|  |  | *title + template-based* | 0.667 | 0.301 | 0.329 | 0.389 |
-|  |  | *title + generate-description* (ours) | **0.706** | **0.320** | **0.355** | **0.418** |
-| NPA  | DistilBERT | *title only* | 0.700 | 0.311 | 0.344 | 0.408 |
-|  |  | *title + template-based* | 0.698 | 0.309 | 0.342 | 0.407 |
-|  |  | *title + generate-description* (ours) | **0.707** | **0.319** | **0.354** | **0.417** |
-|  | BERT | *title only* | 0.689 | 0.301 | 0.332 | 0.398 |
-|  |  | *title + template-based* | 0.694 | 0.314 | 0.345 | 0.410 |
-|  |  | *title + generate-description* (ours) | **0.710** | **0.324** | **0.360** | **0.422** |
+TBD
 
 
 
-<!-- ## Citation
-
-```
-@inproceedings{zhang2023prompt,
-    author = {Zhang, Zizhuo and Wang, Bang},
-    title = {Prompt Learning for News Recommendation},
-    year = {2023},
-    booktitle = {Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval},
-    pages = {227–237},
-    numpages = {11},
-    location = {Taipei, Taiwan},
-    series = {SIGIR '23}
-}
-``` -->
+<!-- ## Citation -->
