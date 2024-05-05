@@ -109,7 +109,7 @@ If you successfully executed, `dataset` folder will be structured as follows:
 
 In this step, you will need an **OpenAI API_KEY**. Please follow [this document](https://platform.openai.com/docs/quickstart) to obtain an API_KEY. 
 
-If you are unable to issue an API_KEY, the category descriptions generated in this step are already provided in the repository ([**category_description_gpt4.json**](https://github.com/yamanalab/gpt-augmented-news-recommendation/blob/main/dataset/generated/category_description_gpt4.json)), so please use those.
+If you are unable to issue an API_KEY, the category descriptions generated in this step are already provided in the repository ([**`category_description_gpt4.json`**](https://github.com/yamanalab/gpt-augmented-news-recommendation/blob/main/dataset/generated/category_description_gpt4.json)), so please use this.
 
 At first, please set OpenAI API_KEY to environment variable:
 
