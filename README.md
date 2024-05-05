@@ -53,13 +53,15 @@ $ tree -L 2
     └── recommendation
 ```
 
-## Requirements
+## Preparation
+
+### Requirements
 
 - [Rye](https://rye-up.com/) 
 
 It also works with Python v3.11.3 + pip.
 
-## Setting
+### Setup
 
 At first, you can install dependencies by running: 
 
@@ -73,7 +75,7 @@ Next, please set PYTHONPATH to environment variable:
 $ export PYTHONPATH=$(pwd)/src:$(pwd)
 ```
 
-## Download MIND dataset
+### Download MIND dataset
 
 We use **[MIND (Microsoft News Dataset)](https://msnews.github.io/)** dataset for training and validating the news recommendation model. You can download them by executing [dataset/download_mind.py](https://github.com/YadaYuki/news-recommendation-llm/blob/main/dataset/download_mind.py).
 
@@ -105,7 +107,7 @@ If you successfully executed, `dataset` folder will be structured as follows:
         └── MINDsmall_train.zip
 ```
 
-## Generate Category Description by GPT-4
+### Generate Category Description by GPT-4
 
 In this step, you will need an **OpenAI API_KEY**. Please follow [this document](https://platform.openai.com/docs/quickstart) to obtain an API_KEY. 
 
