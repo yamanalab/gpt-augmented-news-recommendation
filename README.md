@@ -156,7 +156,7 @@ $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased"
 
 ### Evaluation Result
 
-TBD
+TBD <!-- https://claude.ai/chat/644b515e-c7ea-426c-84fd-6a0ee5adcbae -->
 
 ## Citation
 
