@@ -3,7 +3,7 @@
 
 # News Recommendation with <br /> Category Description via Large Language Model
 
-[Yuki Yada](https://www.yyada.jp/) and Hayato Yamana
+[**Yuki Yada**](https://www.yyada.jp/) and **Hayato Yamana**
 
 </div> 
 
