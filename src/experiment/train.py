@@ -34,12 +34,10 @@ from mind.dataframe import read_behavior_df, read_news_df, create_user_ids_to_id
 from recommendation.nrms import NRMS, PLMBasedNewsEncoder as NRMSNewsEncoder, UserEncoder as NRMSUserEncoder
 from recommendation.npa import NPA, PLMBasedNewsEncoder as NPANewsEncoder, UserEncoder as NPAUserEncoder
 from recommendation.naml import NAML, PLMBasedNewsEncoder as NAMLNewsEncoder, UserEncoder as NAMLUserEncoder
-from recommendation.lstur import LSTUR, PLMBasedNewsEncoder as LSTURNewsEncoder, UserEncoder as LSTURUserEncoder
 from recommendation import NewsRecommendationModel
 from utils.logger import logging
 from utils.path import generate_folder_name_with_timestamp
 from utils.random_seed import set_random_seed
-from utils.slack import notify_slack
 from utils.text import create_transform_fn_from_pretrained_tokenizer
 
 
@@ -50,12 +48,6 @@ class CustomCallback(TrainerCallback):
     def on_epoch_end(
         self, args: TrainingArguments, state: TrainerState, control: TrainerControl, model: nn.Module, **kwargs
     ):
-        # model_path = (MODEL_OUTPUT_DIR / f"model_{state.epoch}.pkl").resolve()
-        # torch.save(model.state_dict(), model_path)
-
-        # artifact = wandb.Artifact(name=TRAINED_MODEL_ARTIFACT_ID, type=MODEL_ARTIFACT_TYPE)
-        # artifact.add_file(str(model_path))
-        # wandb.run.log_artifact(artifact)
         logging.info(f"Epoch {state.epoch} finished")
 
 
@@ -214,14 +206,6 @@ def train(
         newsrec_net = NRMS(
             news_encoder=news_encoder, user_encoder=user_encoder, hidden_size=hidden_size, loss_fn=loss_fn
         ).to(device, dtype=torch.bfloat16)
-    elif news_recommendation_model == NewsRecommendationModel.LSTUR:
-        news_encoder = LSTURNewsEncoder(
-            pretrained=pretrained, conv_kernel_num=conv_kernel_num, kernel_size=kernel_size
-        )
-        user_encoder = LSTURUserEncoder(conv_kernel_num=conv_kernel_num, user_num=user_num)
-        newsrec_net = LSTUR(news_encoder=news_encoder, user_encoder=user_encoder, loss_fn=loss_fn).to(
-            device, dtype=torch.float32
-        )
     elif news_recommendation_model == NewsRecommendationModel.NPA:
         news_encoder = NPANewsEncoder(
             pretrained=pretrained,
@@ -295,14 +279,8 @@ def train(
     wandb.log(metrics.dict())
 
     """
-    5. Notify Result to slack.
+    5. Save Model
     """
-    message = "\n".join(
-        ["Experiment Successfully Finished :hugging_face:", "Metrics:", json.dumps(metrics.dict(), indent=4)]
-    )
-    notify_slack(message)
-
-    # Save Model
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     model_output_dir = MODEL_OUTPUT_DIR / timestamp
     model_output_dir.mkdir(parents=True, exist_ok=True)
@@ -336,8 +314,6 @@ def main(cfg: TrainConfig) -> None:
             )
     except Exception as e:
         logging.error(e)
-        message = "\n".join(["Error Occured :sweat:", str(e)])
-        notify_slack(message)
 
 
 if __name__ == "__main__":
