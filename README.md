@@ -154,8 +154,6 @@ $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased"
 
 ### Evaluation Result
 
-We conducted comprehensive experiments on V100 GPU.
-
 **Comparison of different methods on the MIND dataset**
 | Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
 |----------------------|------------------|--------------------------------|-------|-------|--------|---------|
@@ -179,7 +177,18 @@ We conducted comprehensive experiments on V100 GPU.
 |  |  | *title + generate-description* (ours) | **0.710** | **0.324** | **0.360** | **0.422** |
 
 
-## Citation
 
+<!-- ## Citation
 
-
+```
+@inproceedings{zhang2023prompt,
+    author = {Zhang, Zizhuo and Wang, Bang},
+    title = {Prompt Learning for News Recommendation},
+    year = {2023},
+    booktitle = {Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+    pages = {227–237},
+    numpages = {11},
+    location = {Taipei, Taiwan},
+    series = {SIGIR '23}
+}
+``` -->
