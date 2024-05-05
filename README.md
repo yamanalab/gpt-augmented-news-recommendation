@@ -157,7 +157,7 @@ $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased"
 We conducted comprehensive experiments on V100 GPU.
 
 **Comparison of different methods on the MIND dataset**
-| Recommendation Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
+| Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
 |----------------------|------------------|--------------------------------|-------|-------|--------|---------|
 | NAML | DistilBERT | *title only* | 0.675 | 0.292 | 0.317 | 0.384 |
 |  |  | *title + template-based* | 0.690 | 0.295 | 0.327 | 0.393 |
