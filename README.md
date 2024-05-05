@@ -65,9 +65,9 @@ $ tree -L 2
 
 ### Requirements
 
-- [Rye](https://rye-up.com/) 
+- [**Rye**](https://rye-up.com/) 
 
-It also works with Python v3.11.3 + pip.
+It also works with **Python v3.11.3 + pip**.
 
 ### Setup
 
