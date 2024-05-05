@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     def generate_description_for_category(category: str) -> dict[str, str | None]:
         # Set Parameters
-        model = "gpt-4-turbo"
+        model = "gpt-4-1106-preview"
         temperature = 0.03
 
         # Generate Description
