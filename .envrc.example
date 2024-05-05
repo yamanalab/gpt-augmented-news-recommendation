@@ -1,0 +1,7 @@
+export PYTHONPATH=$(pwd)/src:$(pwd)
+
+export OPENAI_API_KEY=
+
+export WANDB_API_KEY=
+
+export SLACK_WEBHOOK_URL=
