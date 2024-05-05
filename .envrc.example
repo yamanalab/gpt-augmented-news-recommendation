@@ -1,7 +1,8 @@
+
+unset CONDA_PREFIX
+
+unset LD_LIBRARY_PATH # to solve: https://github.com/pytorch/pytorch/issues/104591
+
 export PYTHONPATH=$(pwd)/src:$(pwd)
 
 export OPENAI_API_KEY=
-
-export WANDB_API_KEY=
-
-export SLACK_WEBHOOK_URL=
