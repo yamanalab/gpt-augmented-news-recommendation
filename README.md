@@ -141,7 +141,7 @@ After executing this code, you can confirm that the file `category_description_g
 
 By executing [**`train.py`**](https://github.com/yamanalab/gpt-augmented-news-recommendation/blob/main/src/experiment/train.py), you can train and evaluate the news recommendation model.
 
-To train and evaluate all models(NAML, NRMS, NPA + BERT, DistilBERT) and methods(***title only***, ***template-based***, ***generated-description***), please execute following commands: 
+To train and evaluate all models(***NAML, NRMS, NPA*** + ***BERT, DistilBERT***) and methods(***title only***, ***template-based***, ***generated-description***), please execute following commands: 
 
 ```bash
 $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased","bert-base-uncased" gradient_accumulation_steps=16 batch_size=8 augmentation_method=GPT4,TEMPLATE_BASED,NONE news_recommendation_model=NAML,NRMS,NPA max_len=64
