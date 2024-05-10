@@ -163,7 +163,7 @@ $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased"
 ### Evaluation Result
 
 
-| Recommendation Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
+| Rec Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
 |----------------------|------------------|--------------------------------|-------|-------|--------|---------|
 | NAML | DistilBERT | *title only* | 0.675 | 0.292 | 0.317 | 0.384 |
 |  |  | *title + template-based* | 0.690 | 0.295 | 0.327 | 0.393 |
