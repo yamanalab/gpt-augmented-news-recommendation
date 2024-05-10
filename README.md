@@ -17,7 +17,7 @@ This repository is the official implementation for the paper: **News Recommendat
 
 In this study, we proposed a novel approach that utilizes Large Language Models (LLMs) to automatically generate descriptive texts for news categories, which are then applied to enhance news recommendation performance. Comprehensive experiments demonstrate that our proposed method achieves a 5.8% improvement in performance compared to baselines.
 
-**The paper is currently under review and will be published soon. We will update the README with more details and a link to the paper once it becomes available.**
+**The paper is will be published soon. We will update the README with more details and a link to the paper once it becomes available.**
 
 ## Directories
 ```bash
