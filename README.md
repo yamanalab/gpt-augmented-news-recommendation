@@ -162,8 +162,28 @@ $ rye run python src/experiment/train.py -m pretrained="distilbert-base-uncased"
 
 ### Evaluation Result
 
-TBD
-<!-- https://claude.ai/chat/644b515e-c7ea-426c-84fd-6a0ee5adcbae -->
+
+| Recommendation Model | PLM | Method | AUC | MRR | nDCG@5 | nDCG@10 |
+|----------------------|------------------|--------------------------------|-------|-------|--------|---------|
+| NAML | DistilBERT | *title only* | 0.675 | 0.292 | 0.317 | 0.384 |
+|  |  | *title + template-based* | 0.690 | 0.295 | 0.327 | 0.393 |
+|  |  | *title + generate-description* (ours) | **0.713** | **0.326** | **0.363** | **0.425** |
+|  | BERT | *title only* | 0.700 | 0.318 | 0.350 | 0.414 |
+|  |  | *title + template-based* | 0.696 | 0.308 | 0.340 | 0.405 |
+|  |  | *title + generate-description* (ours) | **0.707** | **0.322** | **0.357** | **0.420** |
+| NRMS | DistilBERT | *title only* | 0.674 | 0.297 | 0.322 | 0.387 |
+|  |  | *title + template-based* | 0.675 | 0.311 | 0.341 | 0.400 |
+|  |  | *title + generate-description* (ours) | **0.707** | **0.324** | **0.359** | **0.422** |
+|  | BERT | *title only* | 0.689 | 0.306 | 0.336 | 0.400 |
+|  |  | *title + template-based* | 0.667 | 0.301 | 0.329 | 0.389 |
+|  |  | *title + generate-description* (ours) | **0.706** | **0.320** | **0.355** | **0.418** |
+| NPA | DistilBERT | *title only* | 0.700 | 0.311 | 0.344 | 0.408 |
+|  |  | *title + template-based* | 0.698 | 0.309 | 0.342 | 0.407 |
+|  |  | *title + generate-description* (ours) | **0.707** | **0.319** | **0.354** | **0.417** |
+|  | BERT | *title only* | 0.689 | 0.301 | 0.332 | 0.398 |
+|  |  | *title + template-based* | 0.694 | 0.314 | 0.345 | 0.410 |
+|  |  | *title + generate-description* (ours) | **0.710** | **0.324** | **0.360** | **0.422** |
+
 
 
 ## Citation
