@@ -7,7 +7,7 @@
 
 </div> 
 
-This repository is the official implementation for the paper: **News Recommendation with Category Description via Large Language Model**. (to appear)
+This repository is the official implementation for the paper: **News Recommendation with Category Description by a Large Language Model**. (to appear)
 
 ## Overview
 
